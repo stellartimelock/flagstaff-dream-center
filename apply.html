@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apply | Flagstaff Dream Center</title>
+  <meta name="description" content="Apply for Flagstaff Dream Center transitional housing. You can also email or visit us in Flagstaff.">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to main content</a>
+
+  <header class="site-header compact">
+    <p class="eyebrow">Apply for help</p>
+    <a href="index.html"><img class="logo" src="assets/DCF-Logo.png" width="280" height="245" alt="Dream Center Flagstaff home"></a>
+    <h1>Online application</h1>
+    <p class="lead">Tell us how we can help. This preview form does not send anywhere yet.</p>
+    <nav class="nav-main" aria-label="Site">
+      <a href="index.html">Home</a>
+      <a href="about.html">Our story</a>
+      <a href="apply.html" aria-current="page">Apply</a>
+      <a href="index.html#donate">Donate</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main" class="page-main">
+    <section>
+      <div class="wrap">
+        <h2>How to reach us</h2>
+        <p>You can also email <a href="mailto:flagstaffdreamcenter@gmail.com">flagstaffdreamcenter@gmail.com</a> or drop off information at 2100 E Rte 66, Flagstaff, AZ 86004. Call <a href="tel:+19282255172">928.225.5172</a>.</p>
+        <p class="note">This form is a placeholder only. Pressing submit will show a thank-you message on this page. Nothing is emailed or saved.</p>
+
+        <form class="form" id="apply-form" action="#" method="post">
+          <label>
+            Full name
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label>
+            Phone
+            <input type="tel" name="phone" autocomplete="tel" inputmode="tel">
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" autocomplete="email">
+          </label>
+          <fieldset>
+            <legend>Preferred contact</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="preferred_contact" value="phone" checked> Phone</label>
+              <label class="choice"><input type="radio" name="preferred_contact" value="email"> Email</label>
+              <label class="choice"><input type="radio" name="preferred_contact" value="either"> Either is fine</label>
+            </div>
+          </fieldset>
+          <label>
+            Who needs help?
+            <select name="who_needs_help">
+              <option value="">Choose one</option>
+              <option value="myself">Me</option>
+              <option value="family">My family</option>
+              <option value="someone_else">Someone else</option>
+            </select>
+          </label>
+          <label>
+            How can we help?
+            <span class="hint">A few sentences is enough.</span>
+            <textarea name="how_can_we_help"></textarea>
+          </label>
+          <label>
+            Anything else we should know?
+            <textarea name="anything_else"></textarea>
+          </label>
+          <p class="thanks" id="apply-thanks" hidden role="status" aria-live="polite" tabindex="-1">Thanks — this preview form is not connected yet. Please email flagstaffdreamcenter@gmail.com or stop by 2100 E Rte 66, Flagstaff, AZ 86004.</p>
+          <button class="btn" type="submit">Submit application</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Flagstaff Dream Center</strong></p>
+    <p>2100 E Rte 66, Flagstaff, AZ 86004</p>
+    <p><a href="tel:+19282255172">928.225.5172</a> · <a href="mailto:flagstaffdreamcenter@gmail.com">flagstaffdreamcenter@gmail.com</a></p>
+  </footer>
+
+  <nav class="sticky" aria-label="Quick actions">
+    <a href="tel:+19282255172">Call</a>
+    <a href="mailto:flagstaffdreamcenter@gmail.com">Email</a>
+    <a href="apply.html" aria-current="page">Apply</a>
+  </nav>
+
+  <script>
+    document.getElementById("apply-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      var thanks = document.getElementById("apply-thanks");
+      thanks.hidden = false;
+      this.reset();
+      thanks.scrollIntoView({ block: "center" });
+      thanks.focus({ preventScroll: true });
+    });
+  </script>
+</body>
+</html>
