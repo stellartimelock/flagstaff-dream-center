@@ -25,7 +25,8 @@ Then open `http://localhost:8080`.
 ## Notes
 
 - Call, Email, and Apply appear once, in the sticky bottom bar.
-- Donate is a single Subsplash placeholder (`#donate`). Do not connect PayPal or another processor until a Subsplash URL is ready.
+- Donate in the sticky top bar opens `donate.html`. The Subsplash button on that page is a placeholder. Do not connect PayPal or another processor until a Subsplash URL is ready.
+- Who we are, Program, Our story, and Contact live in the hamburger menu. Donate stays in the top bar, not in the menu.
 - Apply form is a local placeholder only. It does not submit to email or any backend.
 - Hours (Google listing): Monday–Thursday 8:30 AM–4:00 PM; Friday–Sunday closed.
-- Photos are royalty-free from Pexels (family walk, kitchen, community help).
+- Photos are Isaac’s real Flagstaff Dream Center photos (van “We are” hero, kitchen/community).

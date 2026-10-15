@@ -44,12 +44,19 @@
       <a class="brand" href="index.html">
         <img class="logo-black" src="assets/DCF-Logo-black.png" width="160" height="140" alt="Dream Center Flagstaff">
       </a>
-      <nav class="nav-main" aria-label="Site">
-        <a href="#who-we-are">Who we are</a>
-        <a href="#program">Program</a>
-        <a href="about.html">Our story</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <a class="btn donate-top" href="donate.html" id="donate-btn">Donate</a>
+      <details class="menu-wrap">
+        <summary class="menu-toggle">
+          <span class="menu-bars" aria-hidden="true"></span>
+          Menu
+        </summary>
+        <nav class="nav-dropdown" aria-label="Site">
+          <a href="#who-we-are">Who we are</a>
+          <a href="#program">Program</a>
+          <a href="about.html">Our story</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </details>
     </div>
   </header>
 
@@ -60,9 +67,8 @@
         <h1 id="page-title">Flagstaff Dream Center</h1>
         <p class="tagline">See a Hurt, Heal It. See a Need, Fill it.</p>
         <p class="lead">A faith-based home that helps people find hope, housing, and a new start.</p>
-        <figure class="photo">
-          <img src="assets/photo-family-walk.jpg" width="1600" height="1265" alt="A family walking together in a park while a child rides a bicycle">
-          <figcaption class="photo-credit">Photo: Agung Pandit Wiguna / Pexels</figcaption>
+        <figure class="photo we-are">
+          <img src="assets/photo-we-are.jpg" width="2607" height="2934" alt="Flagstaff Dream Center team in a van. The photo already includes the words We are.">
         </figure>
       </div>
     </section>
@@ -97,9 +103,8 @@
     <section id="who-we-help">
       <div class="wrap">
         <h2>Who we help</h2>
-        <figure class="photo portrait">
-          <img src="assets/photo-home-kitchen.jpg" width="1600" height="1068" alt="A family preparing food together in a kitchen">
-          <figcaption class="photo-credit">Photo: August de Richelieu / Pexels</figcaption>
+        <figure class="photo kitchen">
+          <img src="assets/photo-kitchen-peppers.jpg" width="1440" height="1920" alt="Two people in the Flagstaff Family Food Center kitchen, one holding a colander of colorful peppers">
         </figure>
         <div class="cards three">
           <article class="card">
@@ -124,10 +129,6 @@
         <p>This is a faith-based transitional housing program. Each person gets personal care, mentorship, and guidance.</p>
         <p>Goals include building healthy social skills, finding work, securing independent housing, continuing education, growing as a person, and joining a healthy community.</p>
         <p class="note">To join, you need to be sober and drug-free, and willing to change. We do weekly room checks and monthly drug tests.</p>
-        <figure class="photo portrait">
-          <img src="assets/photo-community-help.jpg" width="1600" height="1067" alt="Volunteers offering water and food supplies to a neighbor">
-          <figcaption class="photo-credit">Photo: RDNE Stock project / Pexels</figcaption>
-        </figure>
         <div class="cards">
           <article class="card">
             <h3>Housing</h3>
@@ -149,14 +150,11 @@
       </div>
     </section>
 
-    <section id="donate">
+    <section id="partner">
       <div class="wrap">
         <h2>Become a partner</h2>
         <p>You can help with a gift, volunteer time, or donated items. Your partnership helps people find safe housing and a new start.</p>
-        <p>100% of donations go to immediate community needs. That is our pledge.</p>
-        <!-- Subsplash donation URL goes here when ready. Do not connect PayPal or any other processor. -->
-        <a class="btn" href="#donate" id="donate-btn">Donate</a>
-        <p class="muted" style="margin-top:1rem;">Online giving through Subsplash is coming soon. You can also mail a gift to our Flagstaff address.</p>
+        <p>Open Donate at the top of any page to give. Every gift goes to immediate community needs.</p>
       </div>
     </section>
 
@@ -200,5 +198,6 @@
     <a href="mailto:flagstaffdreamcenter@gmail.com">Email</a>
     <a href="apply.html">Apply</a>
   </nav>
+  <script src="assets/menu.js"></script>
 </body>
 </html>
