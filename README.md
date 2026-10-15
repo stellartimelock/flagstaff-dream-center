@@ -4,7 +4,7 @@ Simplified, accessibility-first static website.
 
 Live preview: https://stellartimelock.github.io/flagstaff-dream-center/
 
-Published from the `main` branch root (no build step).
+Published from the `main` branch root (no app build step). GitHub Pages is deployed from `main` via a static workflow and/or the repo Pages setting **Deploy from a branch → main / root**.
 
 ## Local preview
 
