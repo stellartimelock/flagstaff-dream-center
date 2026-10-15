@@ -6,7 +6,7 @@
   <title>Donate | Flagstaff Dream Center</title>
   <meta name="description" content="Give to Flagstaff Dream Center. 100% of every donation goes to immediate community needs.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="assets/styles.css?v=202610152146">
+  <link rel="stylesheet" href="assets/styles.css?v=202610152202">
 </head>
 <body class="donate-page">
   <a class="skip" href="#main">Skip to main content</a>
@@ -33,44 +33,49 @@
   </header>
 
   <main id="main" class="page-main">
-    <section class="page-hero donate-hero" aria-labelledby="page-title">
+    <section class="donate-panel" aria-labelledby="page-title">
       <div class="wrap wrap-donate">
-        <p class="eyebrow">Give</p>
-        <h1 id="page-title">Donate</h1>
-        <p class="lead">Your gift helps people in Flagstaff find housing, food, and a new start.</p>
-      </div>
-    </section>
+        <header class="donate-intro">
+          <h1 id="page-title">Donate</h1>
+          <p class="lead">Help people in Flagstaff find housing, food, and a new start.</p>
+          <p class="pledge">100% of every gift goes to immediate community needs.</p>
+        </header>
 
-    <section aria-labelledby="pledge-title">
-      <div class="wrap wrap-donate">
-        <h2 id="pledge-title" class="visually-hidden">Our pledge</h2>
-        <p class="pledge">100% of every donation goes to immediate community needs.</p>
-        <p class="pledge-explain">That is our pledge, in plain words. If you give $20, $20 goes to help. We do not take a cut for overhead, fundraising, or anything else. Your gift becomes food, housing help, and care for people who need it now.</p>
-        <figure class="photo kitchen donate-photo">
-          <img src="assets/photo-kitchen-peppers.jpg" width="1440" height="1920" alt="Two people in the Flagstaff Family Food Center kitchen, one holding a colander of colorful peppers">
-        </figure>
-      </div>
-    </section>
+        <div class="donate-layout">
+          <figure class="photo donate-photo">
+            <img src="assets/donate-team.jpg" width="1320" height="1760" alt="Flagstaff Dream Center serve team standing together in front of the Flagstaff Family Food Bank sign">
+          </figure>
 
-    <section class="band donate-give" id="give">
-      <div class="wrap wrap-donate">
-        <h2>Give online</h2>
-        <p class="pledge-explain">Online giving will run through Subsplash. The button below is a placeholder. It does not take payment yet.</p>
-        <!-- Subsplash donation URL goes here when ready. Do not connect PayPal or any other processor. -->
-        <a class="btn btn-give" href="#give" id="subsplash-placeholder">Give with Subsplash</a>
-      </div>
-    </section>
+          <form class="form donate-form" id="donate-form" action="#" method="post">
+            <p class="thanks" id="donate-thanks" hidden role="status" aria-live="polite" tabindex="-1">Thanks — this form is a preview. Subsplash will process gifts when it is connected. Nothing was charged. You can mail a check to 2100 E Rte 66, Flagstaff, AZ 86004.</p>
 
-    <section>
-      <div class="wrap wrap-donate">
-        <h2>Mail a gift</h2>
-        <p class="pledge-explain">Until online giving is live, you can mail a check or money order to:</p>
-        <p class="mail-address">
-          Flagstaff Dream Center<br>
-          2100 E Rte 66<br>
-          Flagstaff, AZ 86004
-        </p>
-        <p class="pledge-explain">You can also help with volunteer time or donated items. Call 928.225.5172 or email flagstaffdreamcenter@gmail.com.</p>
+            <fieldset class="amount-set">
+              <legend>Amount</legend>
+              <div class="amount-grid">
+                <label class="amount-choice"><input type="radio" name="amount" value="25" required> $25</label>
+                <label class="amount-choice"><input type="radio" name="amount" value="50"> $50</label>
+                <label class="amount-choice"><input type="radio" name="amount" value="100"> $100</label>
+                <label class="amount-choice"><input type="radio" name="amount" value="250"> $250</label>
+                <label class="amount-choice"><input type="radio" name="amount" value="custom"> Other</label>
+              </div>
+              <label class="custom-amount">Custom amount
+                <span class="amount-input">
+                  <span aria-hidden="true">$</span>
+                  <input type="number" name="custom_amount" id="custom-amount" min="1" step="1" inputmode="decimal">
+                </span>
+              </label>
+            </fieldset>
+
+            <div class="form-grid two">
+              <label>Name <input type="text" name="name" autocomplete="name" required></label>
+              <label>Email <input type="email" name="email" autocomplete="email" required></label>
+            </div>
+            <label>Note <span class="hint">Optional</span> <textarea name="note" rows="3"></textarea></label>
+            <!-- Subsplash donation URL goes here when ready. Do not connect PayPal or any other processor. -->
+            <button class="btn btn-give" type="submit">Give</button>
+            <p class="muted donate-note">Online gifts will go through Subsplash. Nothing is charged yet. Or mail a check to 2100 E Rte 66, Flagstaff, AZ 86004.</p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -87,6 +92,41 @@
     <a href="mailto:flagstaffdreamcenter@gmail.com">Email</a>
     <a href="apply.html">Apply</a>
   </nav>
-  <script src="assets/menu.js?v=202610152146"></script>
+  <script src="assets/menu.js?v=202610152202"></script>
+  <script>
+    (function () {
+      var form = document.getElementById("donate-form");
+      if (!form) return;
+
+      var custom = document.getElementById("custom-amount");
+      var other = form.querySelector("[name=amount][value=custom]");
+      var thanks = document.getElementById("donate-thanks");
+
+      function syncCustomRequired() {
+        custom.required = !!(other && other.checked);
+      }
+
+      form.querySelectorAll("[name=amount]").forEach(function (radio) {
+        radio.addEventListener("change", function () {
+          if (radio.value !== "custom") custom.value = "";
+          syncCustomRequired();
+        });
+      });
+
+      custom.addEventListener("input", function () {
+        if (other) other.checked = true;
+        syncCustomRequired();
+      });
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        thanks.hidden = false;
+        thanks.scrollIntoView({ block: "center" });
+        thanks.focus({ preventScroll: true });
+      });
+
+      syncCustomRequired();
+    })();
+  </script>
 </body>
 </html>
