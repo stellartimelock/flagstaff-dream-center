@@ -29,6 +29,8 @@ jobs:
           cp -R index.html apply.html about.html 404.html .nojekyll README.md assets _site/
       - name: Configure Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

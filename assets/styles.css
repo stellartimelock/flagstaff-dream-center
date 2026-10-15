@@ -356,9 +356,28 @@ p {
   padding-bottom: 6rem;
 }
 
+.jump-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+}
+
+.jump-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.6rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--cream);
+  border: 2px solid var(--line);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
 .form {
   display: grid;
-  gap: 1rem;
+  gap: 1.25rem;
   margin-top: 1.25rem;
   background: var(--white);
   border: 2px solid var(--line);
@@ -366,7 +385,29 @@ p {
   padding: 1.25rem;
 }
 
-.form label {
+.form fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+
+.form-block {
+  display: grid;
+  gap: 1rem;
+  padding-top: 1.35rem;
+  border-top: 4px solid var(--gold);
+}
+
+.form-block > legend {
+  color: var(--navy);
+  font-size: clamp(1.45rem, 4vw, 1.85rem);
+  font-weight: 800;
+  padding: 0 0 0.2rem;
+}
+
+.form label,
+.form legend {
   display: block;
   font-weight: 800;
 }
@@ -406,12 +447,30 @@ p {
   border-color: var(--navy);
 }
 
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.span-all {
+  grid-column: 1 / -1;
+}
+
 .choices {
   display: grid;
   gap: 0.55rem;
   margin-top: 0.5rem;
 }
 
+.choices.two {
+  grid-template-columns: 1fr 1fr;
+}
+
+.choices.wrap {
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+}
+
+.form .choice,
 .choice {
   display: flex;
   align-items: center;
@@ -532,6 +591,14 @@ p {
 
   .form {
     padding: 1.6rem;
+  }
+
+  .form-grid.two {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-grid.three {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .compact .logo {
