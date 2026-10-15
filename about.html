@@ -11,21 +11,28 @@
 <body>
   <a class="skip" href="#main">Skip to main content</a>
 
-  <header class="site-header compact">
-    <p class="eyebrow">About</p>
-    <a href="index.html"><img class="logo" src="assets/DCF-Logo.png" width="280" height="245" alt="Dream Center Flagstaff home"></a>
-    <h1>Our story</h1>
-    <p class="lead">An independent ministry in Flagstaff, rooted in local church partnership.</p>
-    <nav class="nav-main" aria-label="Site">
-      <a href="index.html">Home</a>
-      <a href="about.html" aria-current="page">Our story</a>
-      <a href="apply.html">Apply</a>
-      <a href="index.html#donate">Donate</a>
-      <a href="index.html#contact">Contact</a>
-    </nav>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <img class="logo-black" src="assets/DCF-Logo-black.png" width="160" height="140" alt="Dream Center Flagstaff home">
+      </a>
+      <nav class="nav-main" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="index.html#program">Program</a>
+        <a href="about.html" aria-current="page">Our story</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main id="main" class="page-main">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="wrap">
+        <p class="eyebrow">About</p>
+        <h1 id="page-title">Our story</h1>
+        <p class="lead">An independent ministry in Flagstaff, rooted in local church partnership.</p>
+      </div>
+    </section>
     <section>
       <div class="wrap">
         <h2>How we began</h2>
@@ -36,21 +43,18 @@
           <p>“It's not just our job to minister to other peoples' needs. We also have to minister to their potential.”</p>
           <cite>— Tommy Barnett, Dream Center Founder</cite>
         </blockquote>
-        <div class="actions" style="justify-content:flex-start;margin-top:1.5rem;">
-          <a class="btn" href="apply.html">Apply for help</a>
-          <a class="btn btn-navy" href="index.html#donate">Partner with us</a>
-        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
+    <img class="footer-logo" src="assets/DCF-Logo.png" width="160" height="140" alt="">
     <p><strong>Flagstaff Dream Center</strong></p>
     <p>2100 E Rte 66, Flagstaff, AZ 86004</p>
-    <p><a href="tel:+19282255172">928.225.5172</a> · <a href="mailto:flagstaffdreamcenter@gmail.com">flagstaffdreamcenter@gmail.com</a></p>
+    <p>Independent ministry. Urban Hope Church is one of many partners.</p>
   </footer>
 
-  <nav class="sticky" aria-label="Quick actions">
+  <nav class="sticky" aria-label="Call, email, or apply">
     <a href="tel:+19282255172">Call</a>
     <a href="mailto:flagstaffdreamcenter@gmail.com">Email</a>
     <a href="apply.html">Apply</a>

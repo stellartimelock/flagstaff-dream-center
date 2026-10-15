@@ -9,17 +9,38 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to main content</a>
-  <header class="site-header compact">
-    <a href="index.html"><img class="logo" src="assets/DCF-Logo.png" width="240" height="210" alt="Dream Center Flagstaff home"></a>
-    <h1>Page not found</h1>
-    <p class="lead">That page is not here. Let’s get you back.</p>
-    <div class="actions">
-      <a class="btn" href="index.html">Go to the home page</a>
-      <a class="btn btn-light" href="apply.html">Apply</a>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html">
+        <img class="logo-black" src="assets/DCF-Logo-black.png" width="160" height="140" alt="Dream Center Flagstaff home">
+      </a>
+      <nav class="nav-main" aria-label="Site">
+        <a href="index.html">Home</a>
+        <a href="index.html#program">Program</a>
+        <a href="about.html">Our story</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
     </div>
   </header>
-  <main id="main" class="page-main"></main>
-  <nav class="sticky" aria-label="Quick actions">
+
+  <main id="main" class="page-main">
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="wrap">
+        <h1 id="page-title">Page not found</h1>
+        <p class="lead">That page is not here. Let’s get you back home.</p>
+        <p style="margin-top:1.25rem;"><a class="btn" href="index.html">Go to the home page</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <img class="footer-logo" src="assets/DCF-Logo.png" width="160" height="140" alt="">
+    <p><strong>Flagstaff Dream Center</strong></p>
+    <p>2100 E Rte 66, Flagstaff, AZ 86004</p>
+  </footer>
+
+  <nav class="sticky" aria-label="Call, email, or apply">
     <a href="tel:+19282255172">Call</a>
     <a href="mailto:flagstaffdreamcenter@gmail.com">Email</a>
     <a href="apply.html">Apply</a>

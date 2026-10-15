@@ -24,6 +24,8 @@ Then open `http://localhost:8080`.
 
 ## Notes
 
+- Call, Email, and Apply appear once, in the sticky bottom bar.
+- Donate is a single Subsplash placeholder (`#donate`). Do not connect PayPal or another processor until a Subsplash URL is ready.
 - Apply form is a local placeholder only. It does not submit to email or any backend.
-- Donate is a Subsplash placeholder (`#donate`). Do not connect PayPal or another processor until a Subsplash URL is ready.
-- Office hours are not confirmed. The site says “to be confirmed.”
+- Hours (Google listing): Monday–Thursday 8:30 AM–4:00 PM; Friday–Sunday closed.
+- Photos are royalty-free from Pexels (family walk, kitchen, community help).
