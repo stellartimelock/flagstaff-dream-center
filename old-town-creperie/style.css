@@ -98,3 +98,22 @@ footer.site a{color:var(--muted)}
 .sec-price{font:600 15px system-ui,sans-serif;color:var(--accent-d);white-space:nowrap}
 .photo-short img{aspect-ratio:4/3;object-fit:cover;object-position:50% 40%}
 .photo-pair .photo img.pos-left{object-position:22% 50%}
+/* v4: banner, seasonal notice, intro, drinks */
+.banner{position:relative;height:280px;overflow:hidden;background:#3a2c24}
+.banner img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.banner::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(30,20,14,.72) 0%,rgba(30,20,14,.25) 45%,rgba(30,20,14,0) 70%)}
+.banner-text{position:absolute;left:0;right:0;bottom:16px;z-index:1;color:#fff}
+.banner-name{margin:0;font-size:2rem;font-weight:700;line-height:1.15;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.banner-tag{margin:2px 0 0;font:600 15px system-ui,sans-serif;letter-spacing:.04em;text-shadow:0 1px 2px rgba(0,0,0,.6)}
+.season{background:var(--accent);color:#fff;font:14px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif}
+.season .wrap{padding-top:9px;padding-bottom:9px}
+.season a{color:#fff;font-weight:600;white-space:nowrap}
+.season-short{background:#f6e3d6;border-left:4px solid var(--accent);border-radius:4px;padding:8px 12px;font:14px/1.45 system-ui,sans-serif;margin:0 0 14px;max-width:40em}
+.intro{border-bottom:1px solid var(--line)}
+.intro .wrap{padding-top:18px;padding-bottom:18px}
+.intro h1{font-size:1.6rem;margin-bottom:.35em}
+.intro p{max-width:40em;margin-bottom:.5em}
+.drinks{max-width:520px}
+.drinks li{display:flex;justify-content:space-between;gap:12px}
+.drinks .price{font:600 14px system-ui,sans-serif;color:var(--accent-d);white-space:nowrap}
+@media (max-width:640px){.banner{height:180px}.banner-name{font-size:1.5rem}.banner-tag{font-size:13px}.season{font-size:13px}.intro h1{font-size:1.35rem}}
