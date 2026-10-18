@@ -71,3 +71,14 @@ sup{font-size:.28em;font-weight:500;vertical-align:top;margin-left:4px;position:
 .big-price.unavail{font-size:clamp(34px,10vw,56px);text-shadow:none}
 .sb-price.unavail{font-size:clamp(14px,4vw,20px);text-shadow:none}
 .big-price.unavail sup,.sb-price.unavail sup{display:none}
+
+/* network clock line */
+.net{margin-top:14px;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:4px 8px;font-size:11px;color:var(--dim);font-variant-numeric:tabular-nums;letter-spacing:.2px}
+.net b{color:var(--cyan);font-weight:600;text-shadow:0 0 8px rgba(143,243,255,.35)}
+.net i{font-style:normal;opacity:.5}
+.net-prog{display:inline-flex;align-items:center;gap:6px}
+.net .bar{width:56px;height:3px;border-radius:2px;background:var(--line);overflow:hidden}
+.net .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#9945FF,#14F195);box-shadow:0 0 6px rgba(20,241,149,.6);transition:width .6s}
+.net .net-off{display:none}
+.net.off>*{display:none}
+.net.off>.net-off{display:inline}

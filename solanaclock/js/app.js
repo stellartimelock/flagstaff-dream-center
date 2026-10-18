@@ -277,6 +277,54 @@
     fromHash();
   }
 
+
+  // ---------- Solana network clock (JSON-RPC) ----------
+  // publicnode first; api.mainnet-beta.solana.com as fallback (it 403s some datacenter IPs but serves browsers).
+  var RPCS = ['https://solana-rpc.publicnode.com', 'https://api.mainnet-beta.solana.com'];
+  var NET_MS = 5000, SLOTTIME_MS = 60000;
+  var rpcIdx = 0, netBusy = false, slotTime = null;
+  function rpc(method, params) {
+    function attempt(n) {
+      if (n >= RPCS.length) return Promise.reject(new Error('Solana RPC unavailable'));
+      var url = RPCS[(rpcIdx + n) % RPCS.length];
+      var ctl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var t = ctl ? setTimeout(function () { ctl.abort(); }, TIMEOUT_MS) : null;
+      return fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, cache: 'no-store',
+        signal: ctl ? ctl.signal : undefined, body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: method, params: params || [] }) })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (j) { if (t) clearTimeout(t); if (j.error || j.result == null) throw new Error('RPC error'); rpcIdx = (rpcIdx + n) % RPCS.length; return j.result; })
+        .catch(function () { if (t) clearTimeout(t); return attempt(n + 1); });
+    }
+    return attempt(0);
+  }
+  function refreshNet() {
+    if (netBusy) return; netBusy = true;
+    rpc('getEpochInfo').then(function (e) {
+      var slot = num(e.absoluteSlot), ep = num(e.epoch), idx = num(e.slotIndex), tot = num(e.slotsInEpoch);
+      if (slot == null || ep == null || !tot) throw new Error('bad epoch info');
+      var pct = idx / tot * 100;
+      $('net').classList.remove('off');
+      $('net-slot').textContent = slot.toLocaleString('en-US');
+      $('net-epoch').textContent = ep;
+      $('net-pct').textContent = pct.toFixed(1) + '%';
+      $('net-bar').style.width = pct.toFixed(2) + '%';
+      $('net-st').textContent = slotTime != null ? slotTime.toFixed(3) : '—';
+      $('net').title = 'Solana mainnet · slot ' + idx.toLocaleString('en-US') + ' of ' + tot.toLocaleString('en-US') + ' in epoch ' + ep;
+    }).catch(function (err) {
+      console.warn(err.message);
+      $('net').classList.add('off');
+      ['net-slot', 'net-epoch', 'net-pct'].forEach(function (id) { $(id).textContent = '—'; });
+      $('net-bar').style.width = '0';
+    }).then(function () { netBusy = false; });
+  }
+  function refreshSlotTime() {
+    rpc('getRecentPerformanceSamples', [1]).then(function (r) {
+      var s = r && r[0];
+      slotTime = s && s.numSlots ? s.samplePeriodSecs / s.numSlots : null;
+      $('net-st').textContent = slotTime != null ? slotTime.toFixed(3) : '—';
+    }).catch(function () { slotTime = null; $('net-st').textContent = '—'; });
+  }
+
   // ---------- loop ----------
   var busy = false;
   function refresh() {
@@ -293,8 +341,12 @@
   render();
   refresh();
   fetchSpark();
+  refreshSlotTime();
+  refreshNet();
+  setInterval(function () { if (!document.hidden) refreshNet(); }, NET_MS);
+  setInterval(function () { if (!document.hidden) refreshSlotTime(); }, SLOTTIME_MS);
   setInterval(function () { if (!document.hidden) refresh(); }, REFRESH_MS);
   setInterval(function () { if (!document.hidden) fetchSpark(); }, SPARK_MS);
-  document.addEventListener('visibilitychange', function () { if (!document.hidden) refresh(); });
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) { refresh(); refreshNet(); } });
   window.__sc = state;
 })();
