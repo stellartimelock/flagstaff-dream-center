@@ -10,20 +10,23 @@
 </head>
 <body class="dotties">
 <p class="concept">Concept demo prepared for Warner's Nursery &amp; Dottie's Garden Coffee Shoppe, not affiliated or published.</p>
+<nav class="switcher" aria-label="Switch site">
+<div class="wrap"><a href="index.html" class="tab">Warner&rsquo;s Nursery</a><a href="dotties.html" class="tab on" aria-current="page">Dottie&rsquo;s Coffee</a></div>
+</nav>
 <header class="d-head">
 <div class="wrap">
 <a class="d-brand" href="dotties.html">Dottie&rsquo;s Garden Coffee Shoppe<small>Inside Warner&rsquo;s Nursery &middot; Flagstaff</small></a>
-<nav aria-label="Coffee shop"><ul class="nav"><li><a href="#drinks">Drinks</a></li><li><a href="#specials">Specials</a></li><li><a href="#hours">Hours</a></li><li class="back"><a href="index.html">&larr; Warner&rsquo;s Nursery</a></li></ul></nav>
+<nav aria-label="Coffee shop"><ul class="nav"><li><a href="#menu">Menu</a></li><li><a href="#specials">Specials</a></li><li><a href="#hours">Hours</a></li><li><a href="#patio">Patio</a></li></ul></nav>
 </div>
 </header>
+<div class="wrap hero"><img src="img/dotties-counter.jpg" width="1400" height="1050" alt="Dottie's coffee counter with chalkboard menus and hanging greenery"></div>
 <main class="wrap">
-<section class="intro">
+<section class="intro solo">
 <div>
 <h1>A cup brewed just for you, among the plants</h1>
 <p class="lead">Dottie&rsquo;s sits right in the heart of Warner&rsquo;s Nursery. Grab your favorite coffee, tea or Italian soda and take a well-deserved break on our patio, or stroll the nursery with your drink as you shop for houseplants, trees, shrubs and flowers.</p>
-<p><a class="btn" href="#specials">This month&rsquo;s specials</a></p>
+<p><a class="btn" href="#menu">See the menu</a></p>
 </div>
-<img src="img/dotties-counter.jpg" width="1400" height="1050" alt="Dottie's coffee counter with chalkboard menus and hanging greenery">
 </section>
 
 <section class="d-card" id="matador">
@@ -31,32 +34,69 @@
 <p>Our caffeinated beverages come courtesy of <strong>Matador Coffee Roasting</strong>, another great local company based here in Flagstaff. Great tasting coffee comes from great beans roasted to perfection.</p>
 </section>
 
-<section class="d-card" id="specials">
-<p><span class="tag">$1 off specialty drinks</span></p>
-<h2>October specials</h2>
+<section class="d-card" id="menu">
+<h2>Menu</h2>
+<details class="menu" open>
+<summary>Hot drinks</summary>
+<table class="price">
+<caption>Hot drinks by cup size</caption>
+<thead><tr><th scope="col">Drink</th><th scope="col">12 oz</th><th scope="col">16 oz</th><th scope="col">20 oz</th></tr></thead>
+<tbody>
+<tr><th scope="row">Espresso</th><td></td><td></td><td></td></tr>
+<tr><th scope="row">Dottie&rsquo;s Brew</th><td>$2.00</td><td>$2.50</td><td>$3.00</td></tr>
+<tr><th scope="row">Breve</th><td>$4.50</td><td>$5.00</td><td>$6.00</td></tr>
+<tr><th scope="row">Cappuccino</th><td>$3.50</td><td>$4.00</td><td>$4.50</td></tr>
+<tr><th scope="row">Latte</th><td>$4.00</td><td>$4.50</td><td>$5.00</td></tr>
+<tr><th scope="row">Chai Tea</th><td>$3.50</td><td>$4.00</td><td>$4.50</td></tr>
+<tr><th scope="row">Mocha</th><td>$4.50</td><td>$5.00</td><td>$5.50</td></tr>
+<tr><th scope="row">Cocoa</th><td>$2.50</td><td>$3.00</td><td>$3.50</td></tr>
+<tr><th scope="row">Tea</th><td>$2.50</td><td>$2.50</td><td>$2.50</td></tr>
+<tr><th scope="row">Kids Steamer</th><td>$2.00</td><td></td><td></td></tr>
+</tbody>
+</table>
+</details>
+<details class="menu">
+<summary>Cold drinks</summary>
+<table class="price">
+<caption>Cold drinks by cup size</caption>
+<thead><tr><th scope="col">Drink</th><th scope="col">16 oz</th><th scope="col">24 oz</th></tr></thead>
+<tbody>
+<tr><th scope="row">Dottie&rsquo;s Brew</th><td>$2.50</td><td>$4.00</td></tr>
+<tr><th scope="row">Breve</th><td>$5.00</td><td>$6.00</td></tr>
+<tr><th scope="row">Latte</th><td>$4.50</td><td>$5.50</td></tr>
+<tr><th scope="row">Chai</th><td>$4.00</td><td>$5.00</td></tr>
+<tr><th scope="row">Mocha</th><td>$5.00</td><td>$6.00</td></tr>
+<tr><th scope="row">Tea</th><td>$2.50</td><td>$2.50</td></tr>
+<tr><th scope="row">Italian Soda</th><td>$3.00</td><td>$3.50</td></tr>
+</tbody>
+</table>
+</details>
+<details class="menu">
+<summary>Blended</summary>
+<table class="price">
+<caption>Blended drinks by cup size</caption>
+<thead><tr><th scope="col">Drink</th><th scope="col">16 oz</th><th scope="col">24 oz</th></tr></thead>
+<tbody>
+<tr><th scope="row">Mocha / Latte</th><td>$5.00</td><td>$6.00</td></tr>
+<tr><th scope="row">Smoothie</th><td>$4.00</td><td>$5.00</td></tr>
+</tbody>
+</table>
+</details>
+<details class="menu" id="specials" open>
+<summary>October specials <span class="tag">$1 off</span></summary>
 <ul class="specials">
 <li><b>The Willow</b> &mdash; Maple-Spiced Chai</li>
 <li><b>The Oak</b> &mdash; Caramel Apple Butter Latte</li>
 <li><b>The Clove</b> &mdash; Pumpkin-Cinnamon Latte</li>
 </ul>
-<p class="muted">New specialty drinks each month, each $1 off.</p>
-</section>
-
-<section class="d-card" id="drinks">
-<h2>Everyday drinks</h2>
-<p>Hot and cold coffee, cappuccino, lattes, chai tea and Italian sodas, plus more from our menu board:</p>
-<div class="menu-cols">
-<div>
-<h3>Hot</h3>
-<ul><li>Espresso</li><li>Dottie&rsquo;s Brew</li><li>Breve</li><li>Cappuccino</li><li>Latte</li><li>Chai Tea</li><li>Mocha</li><li>Cocoa</li><li>Tea</li><li>Kids Steamer</li></ul>
-</div>
-<div>
-<h3>Cold</h3>
-<ul><li>Dottie&rsquo;s Brew</li><li>Breve</li><li>Latte</li><li>Chai</li><li>Mocha</li><li>Tea</li><li>Italian Soda</li><li>Blended Mocha / Latte</li><li>Smoothie</li></ul>
-</div>
-</div>
-<p class="muted">Extras: steamed milk, alternative milk, extra shot, syrup, sauce, whip. Menu shown is from a past menu board photo; ask at the counter for current offerings and prices.</p>
+<p class="muted">New specialty drinks every month, each $1 off.</p>
+</details>
+<details class="menu">
+<summary>Extras &amp; menu board photo</summary>
+<p>Steamed milk, alternative milk, extra shot, syrup, sauce or whip: <strong>$0.50</strong> each.</p>
 <img src="img/dotties-menu.jpg" width="1143" height="759" alt="Dottie's chalkboard drink menu with hot and cold drinks" loading="lazy">
+</details>
+<p class="muted note">Prices come from Dottie&rsquo;s posted menu board and may have changed. Please check at the counter for current drinks and prices.</p>
 </section>
 
 <div class="grid">
