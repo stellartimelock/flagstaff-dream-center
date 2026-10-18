@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0d12">
+<title>SolanaClock.com — Live SOL price</title>
+<meta name="description" content="Live Solana (SOL) price from Binance, Coinbase and Kraken.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<main class="screen">
+  <header class="top">
+    <h1>SolanaClock.com</h1>
+    <nav class="tabs" role="tablist">
+      <button role="tab" data-view="clock" aria-selected="true">Clock</button>
+      <button role="tab" data-view="orbit" aria-selected="false">Orbit</button>
+      <button role="tab" data-view="table" aria-selected="false">Markets</button>
+    </nav>
+  </header>
+
+  <!-- View 2: big price -->
+  <section id="view-clock" class="view active" role="tabpanel">
+    <div class="sol-logo" aria-hidden="true"><svg viewBox="0 0 100 100"><use href="#sol-mark"/></svg></div>
+    <div class="big-price"><span id="clock-price">—</span><sup>USD</sup></div>
+    <div id="clock-change" class="change">—</div>
+    <svg id="spark" class="spark" viewBox="0 0 300 40" preserveAspectRatio="none" aria-label="SOL 24h price sparkline"></svg>
+    <div id="spark-note" class="note"></div>
+  </section>
+
+  <!-- View 3: orbit -->
+  <section id="view-orbit" class="view" role="tabpanel">
+    <div class="orbit-wrap">
+      <svg class="orbit-lines" id="orbit-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"></svg>
+      <div class="orbit-ring" id="orbit-ring"></div>
+      <div class="sol-bubble">
+        <div class="sb-sym">SOL</div>
+        <div class="sb-price"><span id="orbit-price">—</span><sup>USD</sup></div>
+        <div id="orbit-change" class="change">—</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- View 1: table -->
+  <section id="view-table" class="view" role="tabpanel">
+    <div class="table-scroll">
+      <table class="mkt">
+        <thead><tr><th>Asset</th><th class="num">Price</th><th class="num">24h % Change</th><th class="num hide-xs">Volume</th><th>Exchange</th></tr></thead>
+        <tbody id="mkt-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div id="sources">Data from <span data-src="binance">Binance</span> · <span data-src="coinbase">Coinbase</span> · <span data-src="kraken">Kraken</span></div>
+    <div id="updated" class="note"></div>
+  </footer>
+</main>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="solg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#9945FF"/><stop offset="1" stop-color="#14F195"/></linearGradient>
+    <symbol id="sol-mark" viewBox="0 0 100 100">
+      <path fill="#fff" d="M28 64h48l-10 10H18zM28 26h48L66 36H18zM18 45h48l10 10H28z"/>
+    </symbol>
+  </defs>
+</svg>
+<script src="js/app.js"></script>
+</body>
+</html>
