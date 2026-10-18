@@ -87,3 +87,6 @@ footer.site a{color:var(--muted)}
 .item .price{font:600 14px system-ui,sans-serif;color:var(--accent-d);white-space:nowrap}
 .item p.opt{font-size:.88rem;color:var(--ink);margin-top:2px}
 .gf{margin-top:20px;font-size:.95rem}
+
+.photo-pair .photo img{width:100%;height:170px;object-fit:cover;display:block}
+@media (max-width:600px){.photo-pair .photo img{height:140px}}
