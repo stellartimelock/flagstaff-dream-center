@@ -1,1 +1,1 @@
-(function(){var b=document.querySelector('.menu-btn'),u=document.getElementById('navlist');if(!b||!u)return;b.addEventListener('click',function(){var o=u.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();
+(function(){var b=document.querySelector('.menu-btn'),u=document.getElementById('navlist');if(!b||!u)return;b.addEventListener('click',function(){var o=u.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.setAttribute('aria-label',o?'Close menu':'Open menu');});})();
