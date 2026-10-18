@@ -123,3 +123,15 @@ footer.site a{color:var(--muted)}
 .menu-btn{font-size:20px;line-height:1;padding:5px 10px}
 @media (max-width:640px){.season-bar{font-size:12.5px;padding:5px 8px}.call-btn{padding:6px 10px;font-size:13px}}
 @media (max-width:640px){.cta-photo img{height:180px}}
+
+/* v6: perk pills (dog-friendly, dietary, patio) */
+.perks{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.perk{display:inline-flex;align-items:center;gap:6px;padding:6px 13px 6px 10px;border-radius:999px;border:1px solid;font:600 14px/1.25 system-ui,-apple-system,"Segoe UI",sans-serif;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.perk .ico{width:17px;height:17px;flex:none;fill:currentColor}
+.perk-dog{background:#fbeadf;color:#9a3d17;border-color:#efc3a8}
+.perk-veg{background:#e7f2df;color:#2e6627;border-color:#bfdcb1}
+.perk-patio{background:#fff;color:#5b4a3c;border-color:var(--line)}
+.perks.sm{margin:4px 0 14px;gap:6px}
+.perks.sm .perk{font-size:12.5px;padding:4px 10px 4px 8px}
+.perks.sm .ico{width:14px;height:14px}
+@media (max-width:640px){.perk{font-size:13px;padding:5px 11px 5px 9px}}
