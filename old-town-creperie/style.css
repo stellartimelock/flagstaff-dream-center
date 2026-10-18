@@ -90,3 +90,11 @@ footer.site a{color:var(--muted)}
 
 .photo-pair .photo img{width:100%;height:170px;object-fit:cover;display:block}
 @media (max-width:600px){.photo-pair .photo img{height:140px}}
+/* hero photo + section prices */
+.hero-grid{display:grid;grid-template-columns:1fr 360px;gap:26px;align-items:center}
+.hero-img{margin:0}
+.hero-img img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line)}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr;gap:16px}.hero-img img{max-height:200px;object-fit:cover}}
+.sec-price{font:600 15px system-ui,sans-serif;color:var(--accent-d);white-space:nowrap}
+.photo-short img{aspect-ratio:4/3;object-fit:cover;object-position:50% 40%}
+.photo-pair .photo img.pos-left{object-position:22% 50%}
