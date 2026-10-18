@@ -1,0 +1,1 @@
+(function(){var b=document.querySelector('.menu-btn'),u=document.getElementById('navlist');if(!b||!u)return;b.addEventListener('click',function(){var o=u.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();
