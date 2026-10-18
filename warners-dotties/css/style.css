@@ -1,0 +1,83 @@
+/* Warner's Nursery concept demo — shared styles */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font:16px/1.55 Georgia,"Times New Roman",serif;color:#25301f;background:#f7f5ef}
+img{max-width:100%;height:auto;display:block}
+a{color:#2f5d2a}
+a:hover{color:#1d3d19}
+h1,h2,h3{font-family:"Trebuchet MS",Helvetica,Arial,sans-serif;line-height:1.2;margin:0 0 .4em;color:#1f3b1b}
+h1{font-size:1.55rem}
+h2{font-size:1.2rem;margin-top:.2em}
+h3{font-size:1rem}
+p{margin:0 0 .8em}
+ul{margin:0 0 .8em;padding-left:1.2em}
+
+.concept{margin:0;padding:4px 10px;background:#222;color:#eee;font:12px/1.4 Helvetica,Arial,sans-serif;text-align:center}
+
+.wrap{max-width:960px;margin:0 auto;padding:0 14px}
+.site-head{background:#2f5d2a;color:#fff}
+.site-head .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 16px;padding-top:10px;padding-bottom:10px}
+.brand{color:#fff;text-decoration:none;font:700 1.15rem/1.1 "Trebuchet MS",Helvetica,Arial,sans-serif}
+.brand small{display:block;font-weight:400;font-size:.72rem;opacity:.85;letter-spacing:.04em}
+.nav{display:flex;flex-wrap:wrap;gap:4px 14px;margin:0;padding:0;list-style:none;font:.92rem "Trebuchet MS",Helvetica,Arial,sans-serif}
+.nav a{color:#fff;text-decoration:none;padding:2px 0;border-bottom:2px solid transparent}
+.nav a:hover,.nav a[aria-current]{border-bottom-color:#c9dd8f}
+.nav .coffee a{color:#f3d9a4}
+
+main{padding:16px 0 8px}
+.intro{display:grid;gap:14px;margin-bottom:18px}
+.intro img{border-radius:6px}
+.lead{font-size:1.05rem}
+.card{background:#fff;border:1px solid #e1ddd0;border-radius:6px;padding:12px 14px;margin-bottom:14px}
+.grid{display:grid;gap:14px;grid-template-columns:1fr}
+.grid .card{margin:0}
+.card img{border-radius:4px;margin-bottom:8px}
+.facts{display:grid;gap:4px 12px;grid-template-columns:auto 1fr;margin:0 0 .6em}
+.facts dt{font-weight:700}
+.facts dd{margin:0}
+.btn{display:inline-block;padding:6px 12px;border-radius:4px;background:#2f5d2a;color:#fff;text-decoration:none;font:.92rem "Trebuchet MS",Helvetica,Arial,sans-serif}
+.btn:hover{background:#1d3d19;color:#fff}
+.btn.alt{background:#7a4b2a}
+.btn.alt:hover{background:#5c361c}
+.coffee-teaser{display:grid;gap:12px;background:#fbf3e4;border-color:#ead6b4}
+.coffee-teaser h2{color:#5c361c}
+.muted{color:#5d6657;font-size:.9rem}
+.site-foot{border-top:1px solid #e1ddd0;margin-top:10px;padding:12px 0 18px;font-size:.88rem;color:#4a5444}
+.site-foot p{margin:0 0 .3em}
+
+@media (min-width:640px){
+  h1{font-size:1.8rem}
+  .intro{grid-template-columns:1.1fr 1fr;align-items:center}
+  .grid{grid-template-columns:1fr 1fr}
+  .coffee-teaser{grid-template-columns:1fr 1.4fr;align-items:center}
+}
+@media (min-width:900px){.grid.three{grid-template-columns:1fr 1fr 1fr}}
+
+/* ---------- Dottie's Garden Coffee Shoppe ---------- */
+body.dotties{background:#fbf6ee;color:#3a2a20;font-family:Georgia,"Times New Roman",serif}
+.dotties a{color:#8a4b2b}
+.dotties h1,.dotties h2,.dotties h3{font-family:"Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;color:#5a2f1b;letter-spacing:.01em}
+.d-head{background:#3b2418;color:#f6e7d0}
+.d-head .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 16px;padding-top:10px;padding-bottom:10px}
+.d-brand{color:#f6e7d0;text-decoration:none;font:italic 700 1.25rem/1.1 "Palatino Linotype",Palatino,Georgia,serif}
+.d-brand small{display:block;font:normal .72rem Helvetica,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#d8b98f}
+.d-head .nav a{color:#f6e7d0}
+.d-head .nav a:hover{border-bottom-color:#d8b98f}
+.d-head .nav .back a{color:#cfe3a8}
+.d-card{background:#fffaf2;border:1px solid #ead9bf;border-radius:8px;padding:12px 14px;margin-bottom:14px}
+.d-card img{border-radius:6px;margin-bottom:8px}
+.specials{list-style:none;padding:0;margin:0 0 .6em}
+.specials li{padding:8px 0;border-bottom:1px dashed #d9bf98}
+.specials li:last-child{border-bottom:0}
+.specials b{font-family:"Palatino Linotype",Palatino,Georgia,serif;color:#7a3e22;font-size:1.05rem}
+.tag{display:inline-block;background:#7a3e22;color:#fff;font:.75rem Helvetica,Arial,sans-serif;padding:2px 8px;border-radius:10px;letter-spacing:.04em}
+.menu-cols{display:grid;gap:4px 18px;grid-template-columns:1fr 1fr}
+.menu-cols ul{list-style:none;padding:0;margin:0 0 .6em}
+.menu-cols li{padding:2px 0;border-bottom:1px dotted #e3cfae}
+.d-hours{display:grid;gap:2px 12px;grid-template-columns:auto 1fr;margin:0 0 .6em}
+.d-hours dt{font-weight:700}
+.d-hours dd{margin:0}
+.dotties .btn{background:#7a3e22}
+.dotties .btn:hover{background:#5a2f1b}
+.dotties .btn.green{background:#2f5d2a}
+.dotties .site-foot{border-top-color:#ead9bf;color:#6b5444}
