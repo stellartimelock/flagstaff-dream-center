@@ -76,6 +76,24 @@ h2:after{content:"";flex:1;height:0;border-top:1.5px dashed rgba(90,60,30,.25)}
 .cols{display:grid;gap:0 18px}
 .note2{font-size:12px;opacity:.65;margin:-2px 0 2px 10px;font-style:italic}
 
+.gh{display:grid;align-items:end;margin-bottom:2px}
+.gh h3{margin:0}
+.gh span{font-size:10px;font-weight:600;letter-spacing:.08em;text-align:center;opacity:.55;padding-bottom:5px}
+.c3{display:grid;grid-template-columns:1fr 40px 40px 40px}
+.c2{display:grid;grid-template-columns:1fr 40px 40px}
+.gh.c3 h3,.gh.c2 h3{grid-column:1}
+.c3>.pr,.c2>.pr{grid-column:1/-1;display:grid;grid-template-columns:subgrid;align-items:start;padding:2.5px 0;position:relative}
+.pr .n{font-size:14px;line-height:1.25;display:flex;flex-direction:column;padding-right:6px;position:relative;z-index:1}
+.pr .n small{font-size:11.5px;font-style:italic;opacity:.6;line-height:1.2}
+.pr .d{display:none}
+.pr .p{text-align:center;font-size:13.5px;font-variant-numeric:tabular-nums;line-height:1.25}
+.pr.hl{background:rgba(241,236,226,.12);border-radius:4px;margin:1px -6px;padding:3px 6px;box-shadow:inset 3px 0 0 #f3c98b}
+.pr+.pr{border-top:1px dotted rgba(241,236,226,.16)}
+.pr.hl+.pr,.pr+.pr.hl{border-top-color:transparent}
+.spec{list-style:none;display:flex;flex-wrap:wrap;gap:3px 14px;font-size:13.5px}
+.spec li{white-space:nowrap}
+.spec li:before{content:"✦ ";color:#f08a5d;font-size:11px}
+
 /* kraft tag */
 .tagwrap{padding:2px 4px 4px}
 .ktag{position:relative;background:var(--kraft);color:#3b2717;padding:12px 14px 12px 34px;border-radius:6px;
@@ -158,38 +176,48 @@ footer b{font-family:Fraunces,Georgia,serif;color:var(--cream);letter-spacing:.0
   <section id="menu">
     <div class="board">
       <h2>Menu</h2>
-      <div class="sub">MIX Flagstaff</div>
+      <div class="sub">Prices in $ · S / M / L</div>
       <div class="cols">
         <div>
-          <div class="grp">
-            <h3>Fall drinks <span class="stamp">Seasonal</span></h3>
-            <div class="row"><span class="n">Pumpkin Cream Cold Brew</span><span class="d"></span><span class="x">✦</span></div>
-            <div class="row"><span class="n">Apple Pie Chai</span><span class="d"></span><span class="x">✦</span></div>
-            <div class="row"><span class="n">Cranpear Energy Mixer</span><span class="d"></span><span class="x">✦</span></div>
-            <div class="row"><span class="n">Butter Pecan Maple Latte</span><span class="d"></span><span class="x">✦</span></div>
-          </div>
-          <div class="grp">
-            <h3>Staff faves <span class="stamp">Seasonal</span></h3>
-            <div class="row"><span class="n">Cold Brew</span><span class="d"></span><span class="x">♥</span></div><div class="note2">with Maple Soft Top &amp; Cinnamon</div>
-            <div class="row"><span class="n">Blueberry Maple Latte</span><span class="d"></span><span class="x">♥</span></div>
-          </div>
-          <div class="grp">
-            <h3>Also</h3>
-            <div class="row"><span class="n">Waffle Chai</span><span class="d"></span><span class="x">✦</span></div>
-            <div class="row"><span class="n">Spooky October specials</span><span class="d"></span><span class="x">in store · seasonal</span></div>
-            <div class="row"><span class="n">Iced drinks</span><span class="d"></span><span class="x">iced</span></div>
-          </div>
+<div class="grp">
+<div class="gh c3"><h3>Coffee</h3><span>S</span><span>M</span><span>L</span></div>
+<div class="c3">
+<div class="pr"><span class="n">Drip</span><span class="d"></span><span class="p">3.75</span><span class="p">4.25</span><span class="p">4.75</span></div>
+<div class="pr"><span class="n">Cold Brew</span><span class="d"></span><span class="p"></span><span class="p">4.5</span><span class="p">5.5</span></div>
+<div class="pr"><span class="n">Espresso</span><span class="d"></span><span class="p">3.75</span><span class="p"></span><span class="p"></span></div>
+<div class="pr"><span class="n">Americano</span><span class="d"></span><span class="p">3.75</span><span class="p">4.25</span><span class="p">4.75</span></div>
+<div class="pr"><span class="n">Cappuccino</span><span class="d"></span><span class="p">5.5</span><span class="p"></span><span class="p"></span></div>
+<div class="pr"><span class="n">Latte</span><span class="d"></span><span class="p">5.5</span><span class="p">6.5</span><span class="p">7.5</span></div>
+<div class="pr"><span class="n">Mocha</span><span class="d"></span><span class="p">6</span><span class="p">7</span><span class="p">8</span></div>
+<div class="pr"><span class="n">Raspberry Truffle Latte<small>raspberry &amp; white chocolate</small></span><span class="d"></span><span class="p">6</span><span class="p">7</span><span class="p">8</span></div>
+<div class="pr hl"><span class="n">Honey Flower Latte<small>lavender &amp; honey</small></span><span class="d"></span><span class="p">6</span><span class="p">7</span><span class="p">8</span></div>
+<div class="pr"><span class="n">Thin Mint Latte<small>mocha &amp; peppermint</small></span><span class="d"></span><span class="p">6</span><span class="p">7</span><span class="p">8</span></div>
+<div class="pr"><span class="n">The Mix Fix<small>double shot in drip coffee</small></span><span class="d"></span><span class="p">5.5</span><span class="p">6</span><span class="p">6.5</span></div>
+<div class="pr"><span class="n">Chai Latte<small>spiced tea &amp; cream</small></span><span class="d"></span><span class="p">5.5</span><span class="p">6.5</span><span class="p">7.5</span></div>
+<div class="pr"><span class="n">Dirty Chai Latte</span><span class="d"></span><span class="p">6.5</span><span class="p">7.5</span><span class="p">8.5</span></div>
+</div></div>
         </div>
         <div>
+<div class="grp">
+<div class="gh c2"><h3>Craft tea</h3><span>M</span><span>L</span></div>
+<div class="c2">
+<div class="pr"><span class="n">Matcha Latte</span><span class="d"></span><span class="p">7.5</span><span class="p"></span></div>
+<div class="pr"><span class="n">Cold-Brewed Iced Tea<small>ask us about today's flavors</small></span><span class="d"></span><span class="p">4.5</span><span class="p">5.5</span></div>
+<div class="pr"><span class="n">Hand-Crafted Hot Tea<small>ask us about today's flavors</small></span><span class="d"></span><span class="p">5</span><span class="p"></span></div>
+<div class="pr"><span class="n">London Fog</span><span class="d"></span><span class="p">6.5</span><span class="p"></span></div>
+</div></div>
+<div class="grp">
+<div class="gh c2"><h3>Non coffee</h3><span>M</span><span>L</span></div>
+<div class="c2">
+<div class="pr hl"><span class="n">Energy Mixer<small>contains caffeine</small></span><span class="d"></span><span class="p">7</span><span class="p">8</span></div>
+<div class="pr"><span class="n">Italian Soda<small>caffeine free</small></span><span class="d"></span><span class="p">7</span><span class="p">8</span></div>
+<div class="pr"><span class="n">Kombucha</span><span class="d"></span><span class="p">7</span><span class="p"></span></div>
+<div class="pr"><span class="n">Lemonade</span><span class="d"></span><span class="p">4</span><span class="p">5</span></div>
+<div class="pr"><span class="n">Hot Chocolate</span><span class="d"></span><span class="p">5</span><span class="p">6</span></div>
+</div></div>
           <div class="grp">
-            <h3>Menu favorites</h3>
-            <div class="row"><span class="n">Cappuccino</span><span class="d"></span><span class="x">☕</span></div>
-            <div class="row"><span class="n">Flower Latte</span><span class="d"></span><span class="x">iced</span></div>
-            <div class="row"><span class="n">The Mix Fix</span><span class="d"></span><span class="x">☕</span></div>
-            <div class="row"><span class="n">Croissant</span><span class="d"></span><span class="x">✦</span></div>
-            <div class="row"><span class="n">Club Wrap</span><span class="d"></span><span class="x">✦</span></div>
-            <div class="row"><span class="n">Classic Mimosa</span><span class="d"></span><span class="x">✦</span></div>
-            <div class="row"><span class="n">BBQ Steak Chopped Salad</span><span class="d"></span><span class="x">✦</span></div>
+            <h3>October specials <span class="stamp">Seasonal</span></h3>
+            <ul class="spec"><li>Pumpkin Patch Latte</li><li>Pumpkin Spice Hot Chocolate</li><li>Vampire Lemonade</li><li>Witches Brew Tea</li></ul>
           </div>
           <div class="grp">
             <h3>Pastry case</h3>
