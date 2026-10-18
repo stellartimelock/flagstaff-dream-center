@@ -5,117 +5,222 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>MIX Flagstaff · Cafe &amp; Maker's Boutique</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Caveat:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f7f1e8;--card:#fffaf3;--ink:#2b211b;--mut:#7a6a5d;--line:#e6dacb;--brown:#5a3b28;--rust:#b4552d;--pine:#3f5a45}
+:root{--esp:#2a1c14;--esp2:#3b2719;--cream:#f6ecdc;--paper:#efe2cc;--caramel:#c27a3a;--caramel2:#a8612a;--ink:#2b1e16;--mut:#7b6552;--kraft:#c9a477;--board:#23211f;--chalk:#f1ece2;--pine:#4c6a4f}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font:15px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
-a{color:var(--rust)}
-.wrap{max-width:640px;margin:0 auto;padding:0 14px}
-.note{background:#ebe2d6;color:var(--mut);font-size:11px;text-align:center;padding:4px 10px;line-height:1.3}
-header{background:var(--brown);color:#fff;position:sticky;top:0;z-index:5}
-header .wrap{display:flex;align-items:center;gap:10px;padding:9px 14px}
-.brand{flex:1;min-width:0}
-.brand b{display:block;font-size:17px;letter-spacing:.06em}
-.brand span{display:block;font-size:11.5px;opacity:.8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.btn{display:inline-block;font-size:13px;font-weight:600;text-decoration:none;padding:7px 11px;border-radius:7px;white-space:nowrap}
-header .btn{background:#fff;color:var(--brown)}
-header .btn.alt{background:var(--rust);color:#fff}
-section{padding:14px 0 4px}
-h2{font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--brown);margin-bottom:8px;display:flex;align-items:center;gap:8px}
-h2:after{content:"";flex:1;height:1px;background:var(--line)}
-p{margin-bottom:8px}
-.lead{font-size:14.5px}
-.meta{font-size:13px;color:var(--mut)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px}
-.grid figure{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:3/4;background:var(--line)}
-.grid img{width:100%;height:100%;object-fit:cover;display:block}
-.grid figcaption{position:absolute;left:0;right:0;bottom:0;font-size:11px;color:#fff;padding:14px 6px 4px;background:linear-gradient(transparent,rgba(0,0,0,.6))}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px}
-.card h3{font-size:14px;margin-bottom:5px;display:flex;align-items:center;gap:6px}
-.tag{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;background:#f3dccd;color:var(--rust);padding:1px 6px;border-radius:4px}
-.tag.g{background:#dfe8df;color:var(--pine)}
-ul.items{list-style:none;display:flex;flex-wrap:wrap;gap:5px}
-ul.items li{font-size:13px;background:#f3ebe0;border-radius:5px;padding:3px 8px}
-.visit dl{display:grid;grid-template-columns:72px 1fr;gap:6px 8px;font-size:14px}
-.visit dt{color:var(--mut);font-size:13px}
-.row{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.row .btn{background:var(--brown);color:#fff}
-.row .btn.o{background:transparent;color:var(--brown);border:1px solid var(--brown)}
-.hire{font-size:13px;color:var(--mut)}
-footer{margin-top:12px;padding:12px 0 18px;border-top:1px solid var(--line);font-size:13px;color:var(--mut)}
-footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+body{font:14.5px/1.45 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;
+ background-color:var(--paper);
+ background-image:radial-gradient(rgba(120,80,40,.07) 1px,transparent 1.2px),radial-gradient(rgba(255,255,255,.35) 1px,transparent 1.2px);
+ background-size:7px 7px,11px 11px;background-position:0 0,3px 5px}
+a{color:var(--caramel2)}
+.disp{font-family:Fraunces,Georgia,serif}
+.hand{font-family:Caveat,"Bradley Hand",cursive}
+.page{max-width:720px;margin:0 auto;background:rgba(246,236,220,.6);box-shadow:0 0 0 1px rgba(90,60,30,.08)}
+.note{background:#e3d5bf;color:var(--mut);font-size:11px;text-align:center;padding:4px 10px;line-height:1.3}
+.in{padding:0 14px}
+
+/* banner */
+.banner{position:relative;height:208px;color:#fff;overflow:hidden;
+ background:linear-gradient(180deg,rgba(30,18,10,.35),rgba(30,18,10,.82)),url("./photos/02_baristas-fall-drinks.jpg") center 30%/cover}
+.banner .top{position:absolute;top:10px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:center}
+.open{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.92);color:var(--esp);font-size:11.5px;font-weight:600;padding:4px 9px;border-radius:99px}
+.open i{width:7px;height:7px;border-radius:50%;background:#3f9b52;box-shadow:0 0 0 2px rgba(63,155,82,.25)}
+.ig{color:#fff;font-size:12px;text-decoration:none;opacity:.9}
+.mark{position:absolute;left:14px;right:14px;bottom:12px}
+.logo{display:flex;align-items:flex-end;gap:8px}
+.logo b{font-family:Fraunces,Georgia,serif;font-weight:700;font-size:44px;line-height:.9;letter-spacing:.04em}
+.logo span{font-size:11px;letter-spacing:.32em;text-transform:uppercase;padding-bottom:4px;opacity:.9}
+.logo svg{width:30px;height:20px;margin-bottom:3px;opacity:.9}
+.tag1{font-size:12.5px;opacity:.88;margin:6px 0 9px}
+.acts{display:flex;gap:6px}
+.btn{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:600;text-decoration:none;padding:7px 12px;border-radius:7px;white-space:nowrap}
+.btn.c{background:var(--caramel);color:#fff}
+.btn.l{background:var(--cream);color:var(--esp)}
+.btn.o{border:1.5px solid currentColor;color:var(--cream)}
+
+section{padding:14px 0 6px}
+h2{font-family:Fraunces,Georgia,serif;font-weight:700;font-size:20px;color:var(--esp);display:flex;align-items:center;gap:8px;margin-bottom:8px}
+h2 svg{width:18px;height:18px;flex:none}
+h2:after{content:"";flex:1;height:0;border-top:1.5px dashed rgba(90,60,30,.25)}
+.about p{margin-bottom:6px}
+.about .lead{font-family:Fraunces,Georgia,serif;font-size:16px;line-height:1.35;color:var(--esp2)}
+
+/* polaroids */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 8px;padding:4px 2px 2px}
+.pol{background:#fffdf8;padding:5px 5px 0;box-shadow:0 1px 2px rgba(0,0,0,.12),0 3px 8px rgba(60,35,15,.12);transform:rotate(-1.6deg)}
+.pol:nth-child(2n){transform:rotate(1.4deg)}
+.pol:nth-child(3n){transform:rotate(-.6deg)}
+.pol img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;background:#ddd}
+.pol figcaption{font-family:Caveat,cursive;font-size:17px;line-height:1;text-align:center;color:#3a2a20;padding:5px 0 6px}
+
+/* chalkboard */
+.board{position:relative;color:var(--chalk);border-radius:6px;padding:14px 14px 10px;
+ border:7px solid #6b4a2f;box-shadow:inset 0 0 0 1px rgba(0,0,0,.4),0 3px 10px rgba(40,20,5,.25);
+ background-color:var(--board);
+ background-image:radial-gradient(ellipse at 20% 15%,rgba(255,255,255,.07),transparent 55%),radial-gradient(ellipse at 85% 80%,rgba(255,255,255,.05),transparent 50%),radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);
+ background-size:auto,auto,5px 5px}
+.board h2{color:var(--chalk);font-family:Caveat,cursive;font-size:30px;justify-content:center;margin-bottom:4px}
+.board h2:after{display:none}
+.board .sub{text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;margin-bottom:8px}
+.grp{margin-bottom:10px}
+.grp h3{font-family:Caveat,cursive;font-weight:700;font-size:23px;color:#f3c98b;display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.row{display:flex;align-items:baseline;gap:6px;font-size:14px;padding:2.5px 0}
+.row .n{flex:none;max-width:78%}
+.row .d{flex:1;border-bottom:2px dotted rgba(241,236,226,.35);transform:translateY(-3px);min-width:14px}
+.row .x{flex:none;font-family:Caveat,cursive;font-size:17px;color:#d9d2c4;opacity:.85}
+.stamp{display:inline-block;font-family:Inter,sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border:1.5px solid currentColor;border-radius:99px;padding:2px 7px;transform:rotate(-4deg);line-height:1.2}
+.board .stamp{color:#f08a5d}
+.cols{display:grid;gap:0 18px}
+.note2{font-size:12px;opacity:.65;margin:-2px 0 2px 10px;font-style:italic}
+
+/* kraft tag */
+.tagwrap{padding:2px 4px 4px}
+.ktag{position:relative;background:var(--kraft);color:#3b2717;padding:12px 14px 12px 34px;border-radius:6px;
+ clip-path:polygon(18px 0,100% 0,100% 100%,18px 100%,0 50%);
+ background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.05) 0 2px,transparent 2px 6px),radial-gradient(rgba(90,55,20,.12) 1px,transparent 1.3px);background-size:auto,6px 6px;
+ filter:drop-shadow(0 2px 3px rgba(60,35,10,.2))}
+.ktag:before{content:"";position:absolute;left:14px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:var(--paper);box-shadow:inset 0 1px 2px rgba(0,0,0,.35)}
+.ktag h3{font-family:Fraunces,Georgia,serif;font-size:17px;margin-bottom:3px;display:flex;align-items:center;gap:8px}
+.ktag .stamp{color:#5b3a1e}
+.ktag p{font-size:13.5px}
+.ktag .hand{font-size:19px;line-height:1;display:block;margin-top:4px;color:#4a2f18}
+
+/* hours sign */
+.sign{position:relative;background:var(--esp);color:var(--cream);border-radius:10px;padding:14px;text-align:center;
+ border:2px solid #8a6240;box-shadow:inset 0 0 0 4px var(--esp),inset 0 0 0 5px rgba(232,190,130,.5),0 3px 10px rgba(40,20,5,.25)}
+.sign .op{display:inline-block;font-family:Fraunces,Georgia,serif;font-weight:700;font-size:13px;letter-spacing:.3em;color:#f3c98b;border:1.5px solid #f3c98b;border-radius:4px;padding:2px 8px 2px 11px;margin-bottom:6px}
+.sign .hrs{font-family:Fraunces,Georgia,serif;font-size:22px;line-height:1.15}
+.sign .ev{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;margin-top:2px}
+.sign hr{border:0;border-top:1px dashed rgba(232,190,130,.4);margin:10px 0}
+.sign .addr{font-size:13.5px;line-height:1.4}
+.sign a{color:#f3c98b}
+.sign .acts{justify-content:center;margin-top:10px}
+.hire{font-size:12.5px;color:var(--mut);text-align:center;padding:8px 0 2px}
+
+footer{margin-top:10px;background:var(--esp);color:rgba(246,236,220,.75);font-size:12.5px}
+footer .in{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:11px 14px}
+footer a{color:var(--cream)}
+footer b{font-family:Fraunces,Georgia,serif;color:var(--cream);letter-spacing:.06em}
+
+@media (min-width:600px){
+ .banner{height:230px;background-position:center 22%}
+ .strip{grid-template-columns:repeat(6,1fr)}
+ .cols{grid-template-columns:1fr 1fr}
+ .in{padding:0 20px}
+ .banner .top,.mark{left:20px;right:20px}
+}
 </style>
 </head>
 <body>
+<div class="page">
 <div class="note">Concept demo prepared for Mix Flagstaff, not affiliated or published.</div>
-<header>
-  <div class="wrap">
-    <div class="brand"><b>MIX</b><span>Located in Downtown Flagstaff ⛰️☕️</span></div>
-    <a class="btn" href="tel:+19287748200">Call</a>
-    <a class="btn alt" href="https://www.google.com/maps/search/?api=1&amp;query=MIX+Flagstaff+120+N+Leroux+St+Flagstaff+AZ" target="_blank" rel="noopener">Directions</a>
+
+<header class="banner">
+  <div class="top">
+    <span class="open"><i></i>Open every day · 8:30am–9pm</span>
+    <a class="ig" href="https://www.instagram.com/mixflagstaff/" target="_blank" rel="noopener">@mixflagstaff</a>
+  </div>
+  <div class="mark">
+    <div class="logo">
+      <b>MIX</b>
+      <svg viewBox="0 0 30 20" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M1 19 L10 6 L15 12 L20 4 L29 19 Z"/><path d="M18 7 L20 4 L22 7"/></svg>
+      <span>Flagstaff</span>
+    </div>
+    <p class="tag1">Located in Downtown Flagstaff ⛰️☕️</p>
+    <div class="acts">
+      <a class="btn c" href="tel:+19287748200">Call</a>
+      <a class="btn l" href="https://www.google.com/maps/search/?api=1&amp;query=MIX+Flagstaff+120+N+Leroux+St+Flagstaff+AZ" target="_blank" rel="noopener">Directions</a>
+      <a class="btn o" href="#menu">Menu</a>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
-  <section>
+<main class="in">
+  <section class="about">
     <p class="lead">Cafe &amp; maker's boutique located in the heart of Downtown Flagstaff, Arizona.</p>
     <p>A downtown coffee shop and collaborative boutique that celebrates Flagstaff's incredible community of local makers, artisans and budding entrepreneurs. Come enjoy locally roasted coffee, locally brewed teas and kombucha, and treats.</p>
-    <p class="meta">Open every day 8:30am–9pm · 120 N Leroux St, Old Town Shops</p>
   </section>
 
   <section>
-    <div class="grid">
-      <figure><img src="./photos/02_baristas-fall-drinks.jpg" alt="Two MIX baristas holding fall drinks" loading="lazy"><figcaption>Fall drinks</figcaption></figure>
-      <figure><img src="./photos/03_pastry-case.jpg" alt="MIX pastry case" loading="lazy"><figcaption>Pastry case</figcaption></figure>
-      <figure><img src="./photos/01_spooky-specials.jpg" alt="Spooky October special drinks in a MIX carrier" loading="lazy"><figcaption>Spooky specials</figcaption></figure>
-      <figure><img src="./photos/05_waffle-chai.jpg" alt="Waffle chai from above" loading="lazy"><figcaption>Waffle chai</figcaption></figure>
-      <figure><img src="./photos/06_iced-drinks.jpg" alt="Two iced drinks downtown" loading="lazy"><figcaption>Iced drinks</figcaption></figure>
-      <figure><img src="./photos/04_new-apparel.jpg" alt="Customer wearing new MIX apparel" loading="lazy"><figcaption>MIX apparel</figcaption></figure>
+    <div class="strip">
+      <figure class="pol"><img src="./photos/01_spooky-specials.jpg" alt="Spooky October special drinks in a MIX carrier" loading="lazy"><figcaption>spooky specials</figcaption></figure>
+      <figure class="pol"><img src="./photos/03_pastry-case.jpg" alt="MIX pastry case" loading="lazy"><figcaption>pastry case</figcaption></figure>
+      <figure class="pol"><img src="./photos/05_waffle-chai.jpg" alt="Waffle chai from above" loading="lazy"><figcaption>waffle chai</figcaption></figure>
+      <figure class="pol"><img src="./photos/06_iced-drinks.jpg" alt="Two iced drinks downtown" loading="lazy"><figcaption>iced drinks</figcaption></figure>
+      <figure class="pol"><img src="./photos/02_baristas-fall-drinks.jpg" alt="Two MIX baristas holding fall drinks" loading="lazy"><figcaption>fall drinks</figcaption></figure>
+      <figure class="pol"><img src="./photos/04_new-apparel.jpg" alt="Customer wearing new MIX apparel" loading="lazy"><figcaption>MIX apparel</figcaption></figure>
     </div>
   </section>
 
   <section id="menu">
-    <h2>Menu</h2>
-    <div class="card">
-      <h3>Fall drinks <span class="tag">Seasonal</span></h3>
-      <ul class="items"><li>Pumpkin Cream Cold Brew</li><li>Apple Pie Chai</li><li>Cranpear Energy Mixer</li><li>Butter Pecan Maple Latte</li></ul>
-    </div>
-    <div class="card">
-      <h3>Staff faves <span class="tag">Seasonal</span></h3>
-      <ul class="items"><li>Cold Brew with Maple Soft Top &amp; Cinnamon</li><li>Blueberry Maple Latte</li></ul>
-    </div>
-    <div class="card">
-      <h3>Also</h3>
-      <ul class="items"><li>Waffle Chai</li><li>Spooky October specials (in store) <span class="tag">Seasonal</span></li><li>Iced drinks</li></ul>
-    </div>
-    <div class="card">
-      <h3>Menu favorites</h3>
-      <ul class="items"><li>Cappuccino</li><li>Flower Latte (iced)</li><li>The Mix Fix</li><li>Croissant</li><li>Club Wrap</li><li>Classic Mimosa</li><li>BBQ Steak Chopped Salad</li></ul>
-    </div>
-    <div class="card">
-      <h3>Pastry case</h3>
-      <p class="meta" style="margin:0">Treats in the pastry case, e.g. Blueberry Danish.</p>
+    <div class="board">
+      <h2>Menu</h2>
+      <div class="sub">MIX Flagstaff</div>
+      <div class="cols">
+        <div>
+          <div class="grp">
+            <h3>Fall drinks <span class="stamp">Seasonal</span></h3>
+            <div class="row"><span class="n">Pumpkin Cream Cold Brew</span><span class="d"></span><span class="x">✦</span></div>
+            <div class="row"><span class="n">Apple Pie Chai</span><span class="d"></span><span class="x">✦</span></div>
+            <div class="row"><span class="n">Cranpear Energy Mixer</span><span class="d"></span><span class="x">✦</span></div>
+            <div class="row"><span class="n">Butter Pecan Maple Latte</span><span class="d"></span><span class="x">✦</span></div>
+          </div>
+          <div class="grp">
+            <h3>Staff faves <span class="stamp">Seasonal</span></h3>
+            <div class="row"><span class="n">Cold Brew</span><span class="d"></span><span class="x">♥</span></div><div class="note2">with Maple Soft Top &amp; Cinnamon</div>
+            <div class="row"><span class="n">Blueberry Maple Latte</span><span class="d"></span><span class="x">♥</span></div>
+          </div>
+          <div class="grp">
+            <h3>Also</h3>
+            <div class="row"><span class="n">Waffle Chai</span><span class="d"></span><span class="x">✦</span></div>
+            <div class="row"><span class="n">Spooky October specials</span><span class="d"></span><span class="x">in store · seasonal</span></div>
+            <div class="row"><span class="n">Iced drinks</span><span class="d"></span><span class="x">iced</span></div>
+          </div>
+        </div>
+        <div>
+          <div class="grp">
+            <h3>Menu favorites</h3>
+            <div class="row"><span class="n">Cappuccino</span><span class="d"></span><span class="x">☕</span></div>
+            <div class="row"><span class="n">Flower Latte</span><span class="d"></span><span class="x">iced</span></div>
+            <div class="row"><span class="n">The Mix Fix</span><span class="d"></span><span class="x">☕</span></div>
+            <div class="row"><span class="n">Croissant</span><span class="d"></span><span class="x">✦</span></div>
+            <div class="row"><span class="n">Club Wrap</span><span class="d"></span><span class="x">✦</span></div>
+            <div class="row"><span class="n">Classic Mimosa</span><span class="d"></span><span class="x">✦</span></div>
+            <div class="row"><span class="n">BBQ Steak Chopped Salad</span><span class="d"></span><span class="x">✦</span></div>
+          </div>
+          <div class="grp">
+            <h3>Pastry case</h3>
+            <div class="row"><span class="n">Blueberry Danish &amp; more treats</span><span class="d"></span><span class="x">✦</span></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="boutique">
-    <h2>Boutique</h2>
-    <div class="card">
-      <h3>Local makers <span class="tag g">Shop</span></h3>
-      <p style="margin:0">Goods from Flagstaff's local makers and artisans, gifts, and MIX apparel. New apparel in MIX.</p>
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>Maker's boutique</h2>
+    <div class="tagwrap">
+      <div class="ktag">
+        <h3>Local makers <span class="stamp">Shop local</span></h3>
+        <p>Goods from Flagstaff's local makers and artisans, gifts, and MIX apparel.</p>
+        <span class="hand">New apparel in MIX!</span>
+      </div>
     </div>
   </section>
 
-  <section id="visit" class="visit">
-    <h2>Visit</h2>
-    <div class="card">
-      <dl>
-        <dt>Hours</dt><dd>Open every day<br>8:30am–9pm</dd>
-        <dt>Address</dt><dd>120 N Leroux St (Old Town Shops)<br>Flagstaff, AZ 86001</dd>
-        <dt>Phone</dt><dd><a href="tel:+19287748200">(928) 774-8200</a></dd>
-      </dl>
-      <div class="row">
-        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=MIX+Flagstaff+120+N+Leroux+St+Flagstaff+AZ" target="_blank" rel="noopener">Open in Google Maps</a>
+  <section id="visit">
+    <h2><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H17"/><path d="M8 3c-1 1.2 1 1.8 0 3M12 3c-1 1.2 1 1.8 0 3"/></svg>Visit us</h2>
+    <div class="sign">
+      <span class="op">OPEN</span>
+      <div class="hrs">8:30am – 9pm</div>
+      <div class="ev">Every day</div>
+      <hr>
+      <div class="addr">120 N Leroux St · Old Town Shops<br>Flagstaff, AZ 86001<br><a href="tel:+19287748200">(928) 774-8200</a></div>
+      <div class="acts">
+        <a class="btn c" href="https://www.google.com/maps/search/?api=1&amp;query=MIX+Flagstaff+120+N+Leroux+St+Flagstaff+AZ" target="_blank" rel="noopener">Open in Google Maps</a>
         <a class="btn o" href="tel:+19287748200">Call</a>
       </div>
     </div>
@@ -124,10 +229,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 </main>
 
 <footer>
-  <div class="wrap">
-    <span>MIX Flagstaff</span>
-    <span><a href="https://www.instagram.com/mixflagstaff/" target="_blank" rel="noopener">Instagram @mixflagstaff</a> · <a href="https://linktr.ee/mixflagstaff" target="_blank" rel="noopener">Facebook &amp; more</a></span>
+  <div class="in">
+    <b>MIX Flagstaff</b>
+    <span><a href="https://www.instagram.com/mixflagstaff/" target="_blank" rel="noopener">Instagram</a> · <a href="https://linktr.ee/mixflagstaff" target="_blank" rel="noopener">Facebook &amp; more</a></span>
   </div>
 </footer>
+</div>
 </body>
 </html>
