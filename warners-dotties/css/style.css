@@ -71,6 +71,7 @@ main{padding:16px 0 8px}
   .grid{grid-template-columns:1fr 1fr}
   .coffee-teaser{grid-template-columns:1fr 1.4fr;align-items:center}
 }
+@media (min-width:640px){main>h1:first-child,.intro.solo{margin-top:16px}}
 @media (min-width:900px){.grid.three{grid-template-columns:1fr 1fr 1fr}}
 
 /* ---------- Dottie's Garden Coffee Shoppe ---------- */
@@ -105,6 +106,7 @@ table.price caption{position:absolute;left:-9999px}
 table.price th,table.price td{padding:5px 4px;border-bottom:1px dotted #e3cfae;text-align:right;white-space:nowrap}
 table.price th[scope=row],table.price thead th:first-child{text-align:left;white-space:normal;font-weight:400}
 table.price thead th{font:700 .8rem Helvetica,Arial,sans-serif;color:#7a3e22;text-transform:uppercase;letter-spacing:.04em}
+table.price td.ask{text-align:left;font-style:italic;color:#6b5444;white-space:normal}
 table.price tbody tr:last-child th,table.price tbody tr:last-child td{border-bottom:0}
 .note{margin-top:8px}
 .d-hours{display:grid;gap:2px 12px;grid-template-columns:auto 1fr;margin:0 0 .6em}
