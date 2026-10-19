@@ -154,13 +154,37 @@
   }
   function coinData(sym) { return state.binance[sym] || state.cbFallback[sym] || null; }
 
+  // ---------- motion helpers ----------
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function flash(el, dir) {
+    if (!el || !dir || reduceMotion) return;
+    el.classList.remove('tick-up', 'tick-down');
+    void el.offsetWidth; // restart animation
+    el.classList.add(dir > 0 ? 'tick-up' : 'tick-down');
+  }
+  // Smoothly counts from the previously shown real value to the new real value.
+  function setPrice(el, v) {
+    var prev = el._v;
+    el._v = v;
+    if (el._raf) cancelAnimationFrame(el._raf);
+    if (v == null) { el.textContent = 'Unavailable'; return; }
+    if (prev == null || reduceMotion || prev === v) { el.textContent = fmtPrice(v); return; }
+    flash(el.parentNode, v - prev);
+    var t0 = performance.now(), dur = 700;
+    (function step(t) {
+      var k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.textContent = fmtPrice(prev + (v - prev) * e);
+      if (k < 1) el._raf = requestAnimationFrame(step); else el.textContent = fmtPrice(v);
+    })(t0);
+  }
+
   // ---------- render ----------
   function render() {
     var b = solBlend();
     var tip = b ? b.list.map(function (x) { return x.src + ': ' + fmtPrice(x.price); }).join(' · ') : 'All sources unavailable';
     [['clock-price', 'clock-change'], ['orbit-price', 'orbit-change']].forEach(function (ids) {
       var pe = $(ids[0]);
-      pe.textContent = b ? fmtPrice(b.price) : 'Unavailable';
+      setPrice(pe, b ? b.price : null);
       pe.parentNode.title = tip;
       pe.parentNode.classList.toggle('unavail', !b);
       setChg($(ids[1]), b ? b.chg : null);
@@ -169,7 +193,7 @@
 
     // sources footer
     var ok = { binance: state.binanceOk && !!state.binance.SOL, coinbase: state.cbOk, kraken: state.krOk };
-    document.querySelectorAll('#sources span').forEach(function (s) {
+    document.querySelectorAll('#sources span[data-src]').forEach(function (s) {
       var on = ok[s.dataset.src];
       s.classList.toggle('off', on === false);
       s.title = on === false ? 'Unavailable' : '';
@@ -179,6 +203,7 @@
         (b && b.n > 1 ? ' · SOL = average of ' + b.n + ' exchanges' : '')
       : '';
 
+    $('live').classList.toggle('stale', !b);
     renderTable();
     renderOrbitCoins();
   }
@@ -187,10 +212,14 @@
     if (sym === 'SOL') return '<span class="ic" style="background:linear-gradient(135deg,#ffb347,#c84bff 55%,#5b6cff)"><svg viewBox="0 0 100 100"><use href="#sol-mark"/></svg></span>';
     return '<span class="ic" style="background:radial-gradient(circle at 40% 35%,' + c.c1 + ',' + c.c2 + ')">' + c.icon + '</span>';
   }
+  var prevRow = {};
   function row(sym, name, d, exch, cls, c) {
+    var key = sym + '|' + exch, p = d ? d.price : null, old = prevRow[key], tick = '';
+    if (p != null && old != null && p !== old && !reduceMotion) tick = p > old ? ' tick-up' : ' tick-down';
+    prevRow[key] = p;
     var chgCls = d && d.chg != null ? (d.chg >= 0 ? 'up' : 'down') : 'unavail';
     return '<tr class="' + cls + '"><td><div class="asset">' + icon(sym, c) + '<div>' + sym + '<small>' + name + '</small></div></div></td>' +
-      '<td class="num price' + (d ? '' : ' unavail') + '">' + (d ? fmtPrice(d.price) : 'Unavailable') + '</td>' +
+      '<td class="num price' + (d ? '' : ' unavail') + tick + '">' + (d ? fmtPrice(d.price) : 'Unavailable') + '</td>' +
       '<td class="num ' + chgCls + '">' + (d && d.chg != null ? fmtChg(d.chg) + (d.chg >= 0 ? ' ↑' : ' ↓') : '—') + '</td>' +
       '<td class="num hide-xs">' + (d ? fmtVol(d.vol) : '—') + '</td>' +
       '<td class="exch">' + exch + '</td></tr>';
@@ -216,7 +245,10 @@
     var d = pts.map(function (v, i) {
       return (i ? 'L' : 'M') + (i / (pts.length - 1) * 300).toFixed(1) + ' ' + (36 - (v - min) / rng * 32).toFixed(1);
     }).join(' ');
-    svg.innerHTML = '<path class="area" d="' + d + ' L300 40 L0 40 Z"/><path d="' + d + '"/>';
+    var first = !svg._drawn; svg._drawn = true;
+    var ly = (36 - (pts[pts.length - 1] - min) / rng * 32).toFixed(1);
+    svg.innerHTML = '<path class="area" d="' + d + ' L300 40 L0 40 Z"/><path class="line' + (first ? ' draw' : '') + '" pathLength="1" d="' + d + '"/>' +
+      '<circle class="end" cx="300" cy="' + ly + '" r="2.6"/>';
     note.textContent = '24h · ' + state.sparkSrc;
   }
 
@@ -256,7 +288,10 @@
   function renderOrbitCoins() {
     orbitEls.forEach(function (o) {
       var d = coinData(o.coin.sym);
-      o.el.querySelector('.cp').textContent = d ? fmtPrice(d.price) : 'Unavailable';
+      var cpEl = o.el.querySelector('.cp'), np = d ? d.price : null;
+      if (np != null && o.last != null && np !== o.last) flash(cpEl, np - o.last);
+      o.last = np;
+      cpEl.textContent = d ? fmtPrice(d.price) : 'Unavailable';
       var cc = o.el.querySelector('.cc');
       cc.textContent = d ? fmtChg(d.chg) : '';
       o.el.title = o.coin.name + (d ? ' · ' + d.src : ' · unavailable');
@@ -266,8 +301,16 @@
   // ---------- tabs ----------
   function initTabs() {
     var btns = document.querySelectorAll('.tabs button');
+    var pill = document.querySelector('.tab-pill');
+    function movePill() {
+      var a = document.querySelector('.tabs button[aria-selected=true]');
+      if (a && pill) { pill.style.width = a.offsetWidth + 'px'; pill.style.transform = 'translateX(' + (a.offsetLeft - 3) + 'px)'; }
+    }
+    window.addEventListener('resize', movePill);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(movePill);
     function show(v) {
       btns.forEach(function (b) { b.setAttribute('aria-selected', b.dataset.view === v ? 'true' : 'false'); });
+      movePill();
       document.querySelectorAll('.view').forEach(function (s) { s.classList.toggle('active', s.id === 'view-' + v); });
       if (location.hash !== '#' + v) history.replaceState(null, '', '#' + v);
     }
@@ -275,6 +318,7 @@
     function fromHash() { var h = location.hash.slice(1); if (h === 'orbit' || h === 'table' || h === 'clock') show(h); }
     window.addEventListener('hashchange', fromHash);
     fromHash();
+    movePill();
   }
 
 
@@ -297,24 +341,47 @@
     }
     return attempt(0);
   }
+  var netSnap = null; // {left: slots remaining, at: ms timestamp of the real reading}
+  function fmtDur(sec) {
+    sec = Math.max(0, Math.round(sec));
+    var d = Math.floor(sec / 86400), h = Math.floor(sec % 86400 / 3600), m = Math.floor(sec % 3600 / 60), x = sec % 60;
+    function z(n) { return (n < 10 ? '0' : '') + n; }
+    return d ? d + 'd ' + h + 'h ' + z(m) + 'm' : h ? h + 'h ' + z(m) + 'm ' + z(x) + 's' : m + 'm ' + z(x) + 's';
+  }
+  // Estimate only: real slots remaining × measured seconds/slot, counted down from the time of the reading.
+  function renderEta() {
+    if (!netSnap || slotTime == null) { $('net-eta').textContent = '—'; $('net-at').textContent = '—'; return; }
+    var secs = netSnap.left * slotTime - (Date.now() - netSnap.at) / 1000;
+    $('net-eta').textContent = '≈ ' + fmtDur(secs);
+    var at = new Date(Date.now() + Math.max(0, secs) * 1000);
+    $('net-at').textContent = '~' + at.toLocaleString([], { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+  }
+  function setRing(pct) {
+    $('ring-arc').style.strokeDasharray = pct.toFixed(3) + ' 100';
+    $('ring-dot').style.transform = 'rotate(' + (pct * 3.6).toFixed(2) + 'deg)';
+  }
   function refreshNet() {
     if (netBusy) return; netBusy = true;
     rpc('getEpochInfo').then(function (e) {
       var slot = num(e.absoluteSlot), ep = num(e.epoch), idx = num(e.slotIndex), tot = num(e.slotsInEpoch);
-      if (slot == null || ep == null || !tot) throw new Error('bad epoch info');
+      if (slot == null || ep == null || idx == null || !tot) throw new Error('bad epoch info');
       var pct = idx / tot * 100;
       $('net').classList.remove('off');
       $('net-slot').textContent = slot.toLocaleString('en-US');
       $('net-epoch').textContent = ep;
-      $('net-pct').textContent = pct.toFixed(1) + '%';
-      $('net-bar').style.width = pct.toFixed(2) + '%';
+      $('net-pct').textContent = pct.toFixed(2) + '%';
+      $('net-left').textContent = (tot - idx).toLocaleString('en-US');
       $('net-st').textContent = slotTime != null ? slotTime.toFixed(3) : '—';
+      setRing(pct);
+      netSnap = { left: tot - idx, at: Date.now() };
+      renderEta();
       $('net').title = 'Solana mainnet · slot ' + idx.toLocaleString('en-US') + ' of ' + tot.toLocaleString('en-US') + ' in epoch ' + ep;
     }).catch(function (err) {
       console.warn(err.message);
+      netSnap = null;
       $('net').classList.add('off');
-      ['net-slot', 'net-epoch', 'net-pct'].forEach(function (id) { $(id).textContent = '—'; });
-      $('net-bar').style.width = '0';
+      ['net-slot', 'net-epoch', 'net-pct', 'net-left', 'net-eta', 'net-at'].forEach(function (id) { $(id).textContent = '—'; });
+      setRing(0);
     }).then(function () { netBusy = false; });
   }
   function refreshSlotTime() {
@@ -322,7 +389,8 @@
       var s = r && r[0];
       slotTime = s && s.numSlots ? s.samplePeriodSecs / s.numSlots : null;
       $('net-st').textContent = slotTime != null ? slotTime.toFixed(3) : '—';
-    }).catch(function () { slotTime = null; $('net-st').textContent = '—'; });
+      renderEta();
+    }).catch(function () { slotTime = null; $('net-st').textContent = '—'; renderEta(); });
   }
 
   // ---------- loop ----------
@@ -344,6 +412,7 @@
   refreshSlotTime();
   refreshNet();
   setInterval(function () { if (!document.hidden) refreshNet(); }, NET_MS);
+  setInterval(function () { if (!document.hidden && netSnap) renderEta(); }, 1000);
   setInterval(function () { if (!document.hidden) refreshSlotTime(); }, SLOTTIME_MS);
   setInterval(function () { if (!document.hidden) refresh(); }, REFRESH_MS);
   setInterval(function () { if (!document.hidden) fetchSpark(); }, SPARK_MS);
